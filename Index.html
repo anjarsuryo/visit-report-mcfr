@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>DC Visit Report - PT Sinar Mentari Makmur</title>
+  <meta name="description" content="Sistem laporan kunjungan Debt Collector - PT SMM">
+  <meta name="theme-color" content="#0f4c81">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📋</text></svg>">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { height: 100%; overflow: hidden; background: #0f4c81; }
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+    /* Loading screen while iframe loads */
+    .loading {
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(135deg, #0f4c81, #0a3259);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      z-index: 10;
+      transition: opacity 0.5s ease;
+    }
+    .loading.hidden { opacity: 0; pointer-events: none; }
+    .loading-icon {
+      width: 64px; height: 64px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 16px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 28px;
+      margin-bottom: 16px;
+    }
+    .loading h1 { font-size: 18px; font-weight: 700; margin-bottom: 4px; }
+    .loading p { font-size: 13px; opacity: 0.7; }
+    .spinner {
+      width: 24px; height: 24px;
+      border: 3px solid rgba(255,255,255,0.2);
+      border-top-color: white;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin-top: 20px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
+</head>
+<body>
+  <!-- Loading screen -->
+  <div class="loading" id="loading">
+    <div class="loading-icon">📋</div>
+    <h1>DC Visit Report</h1>
+    <p>PT Sinar Mentari Makmur</p>
+    <div class="spinner"></div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- GANTI URL DI BAWAH DENGAN URL WEB APP ANDA  -->
+  <!-- ============================================ -->
+  <iframe
+    id="app"
+    src="https://script.google.com/macros/s/AKfycbwjNaDpdyiBDRcPlZgoPFRsT9m9VMIPP7STar7Tg9tv1Ddyx8iqBWReGjfnRuUoONEl/exec"
+    allow="geolocation; camera; microphone"
+    loading="eager"
+    onload="document.getElementById('loading').classList.add('hidden')"
+  ></iframe>
+
+  <script>
+    // Fallback: hide loading after 8 seconds even if onload doesn't fire
+    setTimeout(function() {
+      document.getElementById('loading').classList.add('hidden');
+    }, 8000);
+  </script>
+</body>
+</html>
